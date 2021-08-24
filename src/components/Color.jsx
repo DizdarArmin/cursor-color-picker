@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Background from "../images/srebrenik2.jpg";
 export default function Color({ position, isActive }) {
   let width = window.innerWidth - 1;
   let height = window.innerHeight - 1;
@@ -30,7 +31,7 @@ export default function Color({ position, isActive }) {
   let color = {
     r: Math.floor(position.x / unitOfWidth),
     g: Math.floor(position.y / unitOfHeight),
-    b: Math.floor(position.x / unitFromRight),
+    b: Math.floor(160),
   };
 
   const handleChange = () => {
@@ -42,7 +43,10 @@ export default function Color({ position, isActive }) {
   useEffect(() => handleChange(), [position]);
 
   const style = {
+    backgroundImage: `url(${Background})`,
     backgroundColor: `${hex}`,
+    backgroundSize: "cover",
+    backgroundBlendMode: "luminosity",
   };
 
   const copiedMessage = () => {
